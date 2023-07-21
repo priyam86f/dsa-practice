@@ -1,6 +1,6 @@
 public class bs{
     public static void main(String[] args) {
-        int[] nums = {20,18,16,14,12,10,8,6,4,2};
+        int[] nums = {2,4,6,8,10,12,14,16,18,20,22,24};
         int ans = bsalgo(nums, 20);
         System.out.println(ans);
 
@@ -17,10 +17,10 @@ public class bs{
             if(target==nums[mid]){
                 return mid;
             }
-            else if(target<=nums[mid]){
+            else if(target>=nums[mid]){
                 low=mid+1;
             }
-            else if(target>=nums[mid]){
+            else if(target<=nums[mid]){
                 high=mid-1;
             }
         }
