@@ -8,26 +8,38 @@ public class distinctelements {
 
     public static void count_distinct_el_subarray(int[] nums, int k){
         int count = 0 ;
-        HashSet<Integer> set = new HashSet<>();
+        HashMap<Integer,Integer> map = new HashMap<>();
         int j=0;
         int i=0;
+        int set_size=0;
         int n = nums.length;
-        
-        while(j<n){
-            set.add(nums[j]); //base condition
-    
-            if(j-i+1<k){
+
+
+        while(j<n) {
+            map.put(nums[j], map.getOrDefault(nums[j], 0) + 1);
+
+            if (j-i+1<k) {
                 j++;
-            }
-            else if(j-i+1==k){
-                //work on the base condition
-                count = set.size();
-                set.remove(nums[i]);
+            } 
+            else if(j-i+1==k) {
+                
+                count = map.size();
                 System.out.println(count);
+
+                
+                if (map.get(nums[i]) == 1) {
+                    map.remove(nums[i]);
+                } else {
+                    map.put(nums[i], map.get(nums[i]) - 1);
+                }
                 i++;
                 j++;
             }
         }
+            }
+        }
     
-      }
-}
+       
+    
+      
+
